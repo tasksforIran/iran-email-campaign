@@ -1,35 +1,8 @@
-<h1 style="
-  font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 28px;
-  font-weight: 600;
-  color: #1a1a1a;
-  text-align: center;
-  margin-bottom: 25px;
-">
-  Email to Italian Parliament and Senators
-</h1>
-
-<a id="sendEmailLink" style="text-decoration: none;">
-  <button style="
-    background-color: #0057b7;
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    font-size: 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.2s;
-    font-family: 'Segoe UI', Arial, sans-serif;
-  "
-  onmouseover="this.style.backgroundColor='#004a9c'"
-  onmouseout="this.style.backgroundColor='#0057b7'">
-    ✉️ Send Pre‑Filled Email
-  </button>
-</a>
-
 <script>
-  const subject = encodeURIComponent("Sostegno al Popolo Iraniano");
-  const body = encodeURIComponent(`Gentile Representative,
+  // Email content
+  const subject = "Sostegno al Popolo Iraniano";
+
+  const body = `Gentile Representative,
 
 Le scrivo come cittadina iraniana che tiene profondamente al futuro del proprio Paese e alla sicurezza e dignità del popolo iraniano.
 
@@ -46,10 +19,49 @@ Spero sinceramente che l’Italia continuerà a stare dalla parte del popolo ira
 
 Grazie per la Sua attenzione e per il Suo impegno nei confronti dei diritti umani e dei valori democratici.
 
-Rispettosamente,`);
+Rispettosamente,`;
 
-  const bccList = encodeURIComponent(`TREMONTI_G@CAMERA.IT, FORMENTINI_P@CAMERA.IT, QUARTAPELLE_L@CAMERA.IT, LOPERFIDO_E@CAMERA.IT, ONORI_F@CAMERA.IT, AMENDOLA_V@CAMERA.IT, BERGAMINI_D@CAMERA.IT, BIGNAMI_G@CAMERA.IT, BILLI_S@CAMERA.IT, BOLDRINI_L@CAMERA.IT, CAIATA_S@CAMERA.IT, ignazio.larussa@senato.it, gianmarco.centinaio@senato.it, anna.rossomando@senato.it, mariadomenica.castellone@senato.it, licia.ronzulli@senato.it, gaetano.nastri@senato.it, antonio.depoli@senato.it, marco.meloni@senato.it, erika.stefani@senato.it, marco.silvestroni@senato.it, andrea.paganella@senato.it, gianpietro.maffoni@senato.it, segreteria.senlorefice@senato.it, marco.croatti@senato.it, valeria.valente@senato.it, daniela.ternullo@senato.it, meinhard.durnwalder@senato.it, elena.murelli@senato.it, daniela.sbrollini@senato.it, marco.lombardo@senato.it, domenico.matera@senato.it, ministero.affariesteri@cert.esteri.it, FOIA@esteri.it, urp.foia@cert.esteri.it, urp@esteri.it, urp.mae@cert.esteri.it, unita.crisi@esteri.it, verificacertificati@cert.esteri.it, segreteria.ministro@cert.esteri.it`);
+  // BCC list
+  const bcc = `TREMONTI_G@CAMERA.IT, FORMENTINI_P@CAMERA.IT, QUARTAPELLE_L@CAMERA.IT, LOPERFIDO_E@CAMERA.IT, ONORI_F@CAMERA.IT, AMENDOLA_V@CAMERA.IT, BERGAMINI_D@CAMERA.IT, BIGNAMI_G@CAMERA.IT, BILLI_S@CAMERA.IT, BOLDRINI_L@CAMERA.IT, CAIATA_S@CAMERA.IT, ignazio.larussa@senato.it, gianmarco.centinaio@senato.it, anna.rossomando@senato.it, mariadomenica.castellone@senato.it, licia.ronzulli@senato.it, gaetano.nastri@senato.it, antonio.depoli@senato.it, marco.meloni@senato.it, erika.stefani@senato.it, marco.silvestroni@senato.it, andrea.paganella@senato.it, gianpietro.maffoni@senato.it, segreteria.senlorefice@senato.it, marco.croatti@senato.it, valeria.valente@senato.it, daniela.ternullo@senato.it, meinhard.durnwalder@senato.it, elena.murelli@senato.it, daniela.sbrollini@senato.it, marco.lombardo@senato.it, domenico.matera@senato.it, ministero.affariesteri@cert.esteri.it, FOIA@esteri.it, urp.foia@cert.esteri.it, urp@esteri.it, urp.mae@cert.esteri.it, unita.crisi@esteri.it, verificacertificati@cert.esteri.it, segreteria.ministro@cert.esteri.it`;
 
-  document.getElementById("sendEmailLink").href =
-    `mailto:?subject=${subject}&body=${body}&bcc=${bccList}`;
+  // Build mailto link
+  const mailtoLink =
+    "mailto:" +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body) +
+    "&bcc=" + encodeURIComponent(bcc);
+
+  // Create button dynamically
+  document.write(`
+    <h1 style="
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-align: center;
+      margin-bottom: 25px;
+    ">
+      Email to Italian Parliament and Senators
+    </h1>
+
+    <a href="${mailtoLink}" style="text-decoration: none;">
+      <button style="
+        background-color: #0057b7;
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        font-size: 18px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.2s;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        display: block;
+        margin: 0 auto;
+      "
+      onmouseover="this.style.backgroundColor='#004a9c'"
+      onmouseout="this.style.backgroundColor='#0057b7'">
+        ✉️ Send Pre‑Filled Email
+      </button>
+    </a>
+  `);
 </script>
